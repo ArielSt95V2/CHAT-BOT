@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./.env:/app/.env:ro
+      - /app/.venv
+    env_file:
+      - .env
+    command: sleep infinity
+    tty: true
+    stdin_open: true
